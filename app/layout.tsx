@@ -21,7 +21,8 @@ import {
 } from "@/fonts/fonts";
 import "./globals.css";
 import { FloatingDock } from "@/components/ui/floating-dock";
-
+import { Analytics } from "@vercel/analytics/react"
+<Analytics/>
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
