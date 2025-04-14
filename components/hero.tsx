@@ -3,37 +3,79 @@ import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { GradientButton } from "./ui/gradientbutton";
 import Link from "next/link";
 import { TextHoverEffect } from "./ui/text-hover-effect";
+import { Type } from "lucide-react";
+import { TypewriterEffect } from "./ui/typewriter-effect";
 
 export default function Hero() {
+  const words = [
+    {
+      text: "I",
+    },
+    {
+      text: "design,",
+    },
+    {
+      text: "build,",
+    },
+    {
+      text: "and",
+    },
+    {
+      text: "solve",
+    },
+    {
+      text: "problems",
+    },
+    {
+      text: "-",
+    },
+    {
+      text: "simply",
+    },
+    {
+      text: "and",
+    },
+    {
+      text: "smartly",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
+
   return (
     <>
-      <div className="h-screen relative flex flex-col items-center justify-center">
+      <div className="h-screen relative flex flex-col items-center justify-center bg-dark-blue">
         <BackgroundBeams className="background-beams" />
         <div className="z-10 max-w-5xl w-full text-center px-5">
           <div className="mb-8">
             <TextGenerateEffect
-              className="text-sm font-medium text-center text-blue-400 uppercase"
+              className="text-sm font-medium text-center text-blue-100 uppercase font-pilcrow-medium tracking-wider mb-4"
               duration={1.5}
-              words={"Welcome to my website!"} 
+              words={"Web Developer & Designer"}
             />
             <TextGenerateEffect
-              className="lg:text-6xl md:text-5xl sm:text-4xl text-3xl font-bold text-center mt-4 tracking-wide"
+              className={`lg:text-8xl md:text-7xl sm:text-4xl text-3xl font-bold text-center mt-4 tracking-wide text-slate-100 font-chillax-semibold uppercase`}
               duration={2}
-              words={"I'm Hariharan"} 
+              words={"I'm Hariharan"}
             />
-            <p className="mt-6 text-slate-300 text-lg max-w-xl mx-auto leading-relaxed opacity-80">
-              Developer and designer passionate about creating beautiful digital experiences that solve real problems.
-            </p>
+
+            <TypewriterEffect
+              words={words}
+              className="mt-3 text-slate-300 text-lg max-w-xl mx-auto leading-relaxed opacity-80 font-pilcrow-medium"
+              startDelay={2}
+            />
+
+            
           </div>
-          
+
           <div className="flex flex-wrap gap-4 justify-center mt-10">
-            <GradientButton text="Know more"/>
+            <GradientButton text="View work" />
           </div>
         </div>
         <div className="absolute z-11 bottom-0">
-              <TextHoverEffect duration={0.2} text={"VIBE"} classes={`text-9xl`} />
-          </div>
+          <TextHoverEffect duration={0.2} text={"VIBE"} classes={`text-9xl`} />
+        </div>
       </div>
     </>
   );
 }
+``;

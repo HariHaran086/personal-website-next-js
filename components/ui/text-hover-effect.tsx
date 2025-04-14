@@ -10,7 +10,7 @@ export const TextHoverEffect = ({
   text: string;
   duration?: number;
   automatic?: boolean;
-    classes?: string;
+  classes?: string;
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
@@ -49,7 +49,7 @@ export const TextHoverEffect = ({
           cy="50%"
           r="25%"
         >
-          {hovered && (
+          {hovered ? (
             <>
               <stop offset="0%" stopColor="#eab308" />
               <stop offset="25%" stopColor="#ef4444" />
@@ -57,24 +57,22 @@ export const TextHoverEffect = ({
               <stop offset="75%" stopColor="#06b6d4" />
               <stop offset="100%" stopColor="#8b5cf6" />
             </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#94a3b8" />
+              <stop offset="50%" stopColor="#64748b" />
+              <stop offset="100%" stopColor="#475569" />
+            </>
           )}
         </linearGradient>
 
         <motion.radialGradient
           id="revealMask"
           gradientUnits="userSpaceOnUse"
-          r="20%"
+          r={hovered ? "20%" : "5%"}
           initial={{ cx: "50%", cy: "50%" }}
           animate={maskPosition}
           transition={{ duration: duration ?? 0, ease: "easeOut" }}
-
-          // example for a smoother animation below
-
-            // transition={{
-            //   type: "spring",
-            //   stiffness: 300,
-            //   damping: 50,
-            // }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
@@ -94,9 +92,12 @@ export const TextHoverEffect = ({
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        strokeWidth="0.3"
-        className={`fill-transparent stroke-neutral-200 font-[helvetica] ${classes} font-bold dark:stroke-neutral-800`}
-        style={{ opacity: hovered ? 0.7 : 0 }}
+        strokeWidth="0.5"
+        className={`fill-transparent font-[helvetica] ${classes} font-bold`}
+        style={{
+          stroke: "rgba(30, 30, 30, 0.2)",
+          opacity: 0.5
+        }}
       >
         {text}
       </text>
@@ -105,8 +106,8 @@ export const TextHoverEffect = ({
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        strokeWidth="0.3"
-        className={`fill-transparent stroke-neutral-200 font-[helvetica] ${classes} font-bold dark:stroke-neutral-800`}
+        strokeWidth="0.5"
+        className={`fill-transparent font-[helvetica] ${classes} font-bold`}
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -115,6 +116,9 @@ export const TextHoverEffect = ({
         transition={{
           duration: 4,
           ease: "easeInOut",
+        }}
+        style={{
+          stroke: "rgba(50, 50, 50, 0.3)"
         }}
       >
         {text}
@@ -125,12 +129,30 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         stroke="url(#textGradient)"
-        strokeWidth="0.3"
+        strokeWidth={hovered ? "0.6" : "0.4"}
         mask="url(#textMask)"
         className={`fill-transparent font-[helvetica] ${classes} font-bold`}
       >
         {text}
       </text>
+      <motion.circle
+        cx="50%"
+        cy="50%"
+        r="1"
+        fill="none"
+        stroke="url(#textGradient)"
+        strokeWidth="0.5"
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: hovered ? 0 : 0.3,
+          r: hovered ? 1 : [5, 10, 5]
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
     </svg>
   );
-};
+}
