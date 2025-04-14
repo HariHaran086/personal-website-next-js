@@ -21,7 +21,6 @@ import {
 } from "@/fonts/fonts";
 import "./globals.css";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { title } from "process";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
