@@ -68,7 +68,7 @@ export default function RootLayout({
             {title: "Home", icon: <FaHome className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "#home"},
             {title: "Portfolio", icon: <FaSuitcase className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "#portfolio"},
             {title: "LinkedIn", icon: <FaLinkedin className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "https://www.linkedin.com/in/hariharanmanochrasa/"},
-            {title: "Fiverr", icon: <TbBrandFiverr className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "https://www.fiverr.com/sellers/hariharanmanoch/edit"}
+            {title: "Fiverr", icon: <TbBrandFiverr className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "https://www.fiverr.com/s/NND7QDR"}
           ]}
           mobileClassName="translate-y-20"/>
         </div>
