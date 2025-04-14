@@ -69,9 +69,9 @@ export default function Hero() {
             <GradientButton text="View work" />
           </div>
         </div>
-        <div className="absolute z-11 bottom-0">
+        {/* <div className="absolute z-11 bottom-0">
           <TextHoverEffect duration={0.2} text={"VIBE"} classes={`text-9xl`} />
-        </div>
+        </div> */}
       </div>
     </>
   );

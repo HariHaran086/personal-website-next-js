@@ -63,14 +63,16 @@ export default function RootLayout({
           ${pilcrowHeavy.variable}
           antialiased`}
       >
-        <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center shadow-lg rounded-tl-3xl rounded-tr-3xl p-4">
+        <div className="fixed bottom-15 right-15 z-50 md:bottom-10 md:left-0 md:right-0 md:flex md:items-center md:justify-center md:rounded-tl-3xl md:rounded-tr-3xl md:p-4">
           <FloatingDock items={[
             {title: "Home", icon: <FaHome className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "#home"},
             {title: "Portfolio", icon: <FaSuitcase className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "#portfolio"},
             {title: "LinkedIn", icon: <FaLinkedin className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "https://www.linkedin.com/in/hariharanmanochrasa/"},
             {title: "Fiverr", icon: <TbBrandFiverr className="h-full w-full text-slate-500 dark:text-slate-300"/>, href: "https://www.fiverr.com/s/NND7QDR"}
-          ]}
-          mobileClassName="translate-y-20"/>
+          ]} 
+            mobileClassName="fixed"
+            desktopClassName="fixed"
+          />
         </div>
         {children}
       </body>
