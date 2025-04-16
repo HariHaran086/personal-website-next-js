@@ -1,7 +1,7 @@
 import { BackgroundBeams } from "./ui/background-beams";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { GradientButton } from "./ui/gradientbutton";
-import { TextHoverEffect } from "./ui/text-hover-effect";
+// import { TextHoverEffect } from "./ui/text-hover-effect";
 import { TypewriterEffect } from "./ui/typewriter-effect";
 
 export default function Hero() {
